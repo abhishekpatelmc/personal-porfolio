@@ -29,6 +29,15 @@ Ajax Contact Form
             'message' : $('textarea[name="form-message"]').val()
         };
 
+        $("#my-form").submit(function(e) {
+            e.preventDefault();
+          
+            var $form = $(this);
+            $.post($form.attr("action"), $form.serialize()).then(function() {
+              alert("Thank you!");
+            });
+          });
+
         // process the form
         $.ajax({
             type : 'POST',
